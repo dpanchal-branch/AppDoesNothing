@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.deepen.deepen_testbed">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".CustomApplicationClass"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Branch URI Scheme -->
+            <intent-filter>
+                <data android:scheme="deepen" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+
+
+            <!-- Branch App Links (optional) -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="deepen.app.link"
+                    android:scheme="https" />
+                <data
+                    android:host="deepen-alternate.app.link"
+                    android:scheme="https" />
+                <data
+                    android:host="deepen.test-app.link"
+                    android:scheme="https" />
+            </intent-filter>
+
+        </activity> <!-- Branch init -->
+        <meta-data
+            android:name="io.branch.sdk.BranchKey"
+            android:value="key_live_nmKsJoHPg5wa3iPuN5lqPjlgrva1uBNq" />
+        <meta-data
+            android:name="io.branch.sdk.BranchKey.test"
+            android:value="key_test_laGDLlRJeXCp5iTuL1QqLgjjrCb0EEVR" />
+        <meta-data
+            android:name="io.branch.sdk.TestMode"
+            android:value="false" />
+    </application>
+
+</manifest>
